@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Question</key>
+		<string>I need to buy a new toy for my 5 year-old niece.</string>
+        <key>GeneralResponse</key>
+        <string>Any toy that encourages problem solving, spatial reasoning, and mechanics is a win for supporting growth into STEM. But we might have a larger problem of advertising and marketing in our society. Some believe that the heavily gender branded toys in our stores are creating more distance between boys and girls at earlier ages. This becomes a bigger question of how men and women interact in our society as a whole.</string>
+        <key>PossibleAnswers</key>
+        <array>
+			<dict>
+				<key>Answer</key>
+				<string>I should buy a generic building set that doesn't have a specific color scheme.</string>
+                <key>Change</key>
+                <real>0.04</real>
+				<key>SpecificResponse</key>
+				<string>Awesome choice. Whether your niece goes into STEM or not, the concepts she'll work through will help her later.</string>
+			</dict>
+            <dict>
+                <key>Answer</key>
+                <string>I should buy a toy branded for a boy because that is where you find the best STEM toys.</string>
+                <key>Change</key>
+                <real>0.02</real>
+                <key>SpecificResponse</key>
+                <string>It is true that your choices will larger looking in this pool and something is better than nothing.</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>I should buy a pink and purple invention set. My niece can be both a princess and an engineer.</string>
+                <key>Change</key>
+                <real>0.04</real>
+                <key>SpecificResponse</key>
+                <string>She can be both a princess and an engineer! Make sure the set can be reused to further explore and learn.</string>
+            </dict>
+		</array>
+	</dict>
+    <dict>
+        <key>Question</key>
+        <string>As a store that sells toys, how can I help increase the number of women in STEM?</string>
+        <key>GeneralResponse</key>
+        <string>Bottom line, sell toys that encourage learning and are not designed for a specific gender.</string>
+        <key>PossibleAnswers</key>
+        <array>
+            <dict>
+                <key>Answer</key>
+                <string>I can't change the gendering of toys that I sell, but I can remove pink and blue from my store.</string>
+                <key>Change</key>
+                <real>0.02</real>
+                <key>SpecificResponse</key>
+                <string>Great choice. Also, could you attempt to choose more toys that are less strongly gendered?</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>I'll mix up my aisles and put things like the cars next to the dolls.</string>
+                <key>Change</key>
+                <real>0.04</real>
+                <key>SpecificResponse</key>
+                <string>Yes! Just changing the wall from blue to red still leaves "boy" and "girl" aisles. Why can't cars and dolls be across from each other?</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>This isn't my problem.</string>
+                <key>Change</key>
+                <real>-0.04</real>
+                <key>SpecificResponse</key>
+                <string>As more and more jobs become technical, and there are fewer people prepared to enter those jobs, this becomes everyone's "problem." Let's encourage STEM for all, which includes more women.</string>
+            </dict>
+        </array>
+    </dict>
+    <dict>
+        <key>Question</key>
+        <string>As K12 educator, how can encourage STEM growth in my students?</string>
+        <key>GeneralResponse</key>
+        <string>Turns out, this is an extemely complicated question. Just a few suggestions, encourage learning and self-driven discovery through topics that the student is interested in. Every child, regardless of gender or "skill level" is capable of exceling in their own way. Not everyone is going to become a programmer, and that is okay. But let's create an education system where it is possible to learn this.</string>
+        <key>PossibleAnswers</key>
+        <array>
+            <dict>
+                <key>Answer</key>
+                <string>All students in a given grade should learn the same things at the same pace.</string>
+                <key>Change</key>
+                <real>-0.08</real>
+                <key>SpecificResponse</key>
+                <string>Fail. Each student is unique. Let's create a system where an individual can move as fast or slow as necessary, in each subject, to keep them engaged and moving forward.</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>I'll chalenge the students that are bored, giving them additional materials.</string>
+                <key>Change</key>
+                <real>0.08</real>
+                <key>SpecificResponse</key>
+                <string>This actually happened to me. In the sixth grade I was given the Pre-Algebra book and flew through the whole thing in half a year.</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>Our school has after school programs in robotics and hosts Hour of Code.</string>
+                <key>Change</key>
+                <real>0.04</real>
+                <key>SpecificResponse</key>
+                <string>This is great. Let's throw a female mentor in there and we'll really be on the right track.</string>
+            </dict>
+        </array>
+    </dict>
+    <dict>
+        <key>Question</key>
+        <string>As a University, how can I support increasing the number of women in STEM majors?</string>
+        <key>GeneralResponse</key>
+        <string></string>
+        <key>PossibleAnswers</key>
+        <array>
+            <dict>
+                <key>Answer</key>
+                <string>Let's offer a class like Harvard's CS50!</string>
+                <key>Change</key>
+                <real>0.1</real>
+                <key>SpecificResponse</key>
+                <string>Hot Dog! A survey class that is meant to be accessible to anyone, regardless of technical knowledge.This means a woman should never have to struggle alone again for 20 hours on one assignment.</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>During campus tours, have women sit in on STEM class with females.</string>
+                <key>Change</key>
+                <real>0.2</real>
+                <key>SpecificResponse</key>
+                <string>Seeing women actively learning and sharing STEM gets and keeps more women in STEM.</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>I'll worry about getting them into STEM once they're enrolled.</string>
+                <key>Change</key>
+                <real>-0.4</real>
+                <key>SpecificResponse</key>
+                <string>You may have just lost out on a whole faction of smart women who could have changed the future of your STEM programs.</string>
+            </dict>
+        </array>
+    </dict>
+    <dict>
+        <key>Question</key>
+        <string>Great. Now we have more women in STEM majors. How do we keep them?</string>
+        <key>GeneralResponse</key>
+        <string></string>
+        <key>PossibleAnswers</key>
+        <array>
+            <dict>
+                <key>Answer</key>
+                <string>Send our women STEM majors to conferences that focus on women in tech.</string>
+                <key>Change</key>
+                <real>0.08</real>
+                <key>SpecificResponse</key>
+                <string>This is a great strategy. One of the reasons that women don't stay in STEM is that they don't see enough women like them.</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>We just had a woman drop her STEM major. There is nothing we can do about retention.</string>
+                <key>Change</key>
+                <real>-0.1</real>
+                <key>SpecificResponse</key>
+                <string>Did you follow up with her? Did she drop because of how she was treated by a professor or peer? Do you have a systemic problem at your school regarding how women are treated in STEM classes?</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>We're creating a mentoring program that pairs uperclassment women with freshman.</string>
+                <key>Change</key>
+                <real>0.1</real>
+                <key>SpecificResponse</key>
+                <string>This sounds awesome! You increase the chances of both the mentor and mentee of staying in a STEM degree.</string>
+            </dict>
+        </array>
+    </dict>
+    <dict>
+        <key>Question</key>
+        <string>How can I increase the number of women in technical roles in my company?</string>
+        <key>GeneralResponse</key>
+        <string></string>
+        <key>PossibleAnswers</key>
+        <array>
+            <dict>
+                <key>Answer</key>
+                <string>I've heard there's a pipeline problem. That's why as a company I can't hire any women.</string>
+                <key>Change</key>
+                <real>-0.2</real>
+                <key>SpecificResponse</key>
+                <string>Epic Fail. Try Again.</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>We'll attract female candidates by creating a company culture of equality and inclusion.</string>
+                <key>Change</key>
+                <real>0.04</real>
+                <key>SpecificResponse</key>
+                <string>Sounds great. But how do you actually do this?</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>We are instituting inclusion groups, an open pay model, and more.</string>
+                <key>Change</key>
+                <real>0.2</real>
+                <key>SpecificResponse</key>
+                <string>Wow. Will you please let the rest of this know how this actually goes in practice?</string>
+            </dict>
+        </array>
+    </dict>
+    <dict>
+        <key>Question</key>
+        <string>We're starting to get more women in technial roles! It feels like a complete win. But now I'm afraid we'll lose them.</string>
+        <key>GeneralResponse</key>
+        <string></string>
+        <key>PossibleAnswers</key>
+        <array>
+            <dict>
+                <key>Answer</key>
+                <string>Create a culture that has a zero tollerance policy towards harassment.</string>
+                <key>Change</key>
+                <real>0.2</real>
+                <key>SpecificResponse</key>
+                <string>Yes. Yes. Yes. This means every member of the team should be involved in nipping comments in the bud. Immeditately.</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>Make sure your women have met other women in technical roles in your company.</string>
+                <key>Change</key>
+                <real>0.1</real>
+                <key>SpecificResponse</key>
+                <string>This might sound like a no brainer, but I have been at a company, which employs 18,000 people, for over six months, and I have not met one other woman in a technical role.</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>If a woman doesn't want to stay here, that is her choice. She can find a job elsewhere.</string>
+                <key>Change</key>
+                <real>-0.2</real>
+                <key>SpecificResponse</key>
+                <string>If every company has this attitude, where will I go?</string>
+            </dict>
+        </array>
+    </dict>
+    <dict>
+        <key>Question</key>
+        <string>Alright, seriously, we're trying. We're hiring women, we're taking action, and yet our numbers are still not moving very fast. What are we suppossed to do?</string>
+        <key>GeneralResponse</key>
+        <string>If you have made it this far, please just keep going and keep trying. Don't give up on us, and we won't give up on you.</string>
+        <key>PossibleAnswers</key>
+        <array>
+            <dict>
+                <key>Answer</key>
+                <string>Let's offer scholarships to our annual dev conference to underepresented groups in tech.</string>
+                <key>Change</key>
+                <real>0.3</real>
+                <key>SpecificResponse</key>
+                <string>Yes! Epic Win! Thank you Apple for investing in us!</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>Create an in-company training program (bootcamp) that target women.</string>
+                <key>Change</key>
+                <real>0.2</real>
+                <key>SpecificResponse</key>
+                <string>Yes! This is a win on so many levels. The company knows that the people they are hiring are qualified for the job they are entering.</string>
+            </dict>
+            <dict>
+                <key>Answer</key>
+                <string>Partner with universities and bootcamps to create internship programs that target women.</string>
+                <key>Change</key>
+                <real>0.3</real>
+                <key>SpecificResponse</key>
+                <string>One of my perceived blockers to me getting started was the seemingly impossible way to enter this field with a CS degree.</string>
+            </dict>
+        </array>
+    </dict>
+</array>
+</plist>
