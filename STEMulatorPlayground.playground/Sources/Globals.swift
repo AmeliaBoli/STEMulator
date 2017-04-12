@@ -5,5 +5,5 @@ public enum GameState {
     case lost
     case completed
     case playAgain
-    case inProgress
+    case unknown
 }

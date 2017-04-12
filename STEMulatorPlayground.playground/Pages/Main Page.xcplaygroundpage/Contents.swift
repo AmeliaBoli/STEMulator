@@ -57,15 +57,18 @@ class GameViewController: UIViewController {
         let welcomeLabel = UILabel()
         welcomeLabel.text = "Welcome to STEMulator!"
         welcomeLabel.textAlignment = .center
+        welcomeLabel.font = UIFont.boldSystemFont(ofSize: 24)
 
         let directionsLabel = UILabel ()
-        directionsLabel.text = "At the top of the screen you'll see a question or scenario regarding women and STEM. Select an action at the bottom of the screen to see how it could affect the number of women in STEM."
+        directionsLabel.text = "At the top of the screen you'll see a question or scenario regarding women and STEM.\r\rSelect an action at the bottom of the screen to see how it could affect the number of women in STEM."
         directionsLabel.numberOfLines = 0
         directionsLabel.lineBreakMode = .byWordWrapping
+        directionsLabel.textAlignment = .center
 
         let startButton = UIButton(type: .system)
         startButton.setTitle("Let's Start!", for: .normal)
         startButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
+        startButton.titleLabel?.font = UIFont.systemFont(ofSize: 24)
 
         startingStackView = UIStackView(arrangedSubviews: [welcomeLabel, directionsLabel, startButton])
         startingStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -111,6 +114,7 @@ class GameViewController: UIViewController {
         questionNumberLabel = UILabel()
         questionNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         questionNumberLabel.textAlignment = .center
+        questionNumberLabel.font = UIFont.systemFont(ofSize: 15)
 
         questionLabel = UILabel()
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -121,10 +125,12 @@ class GameViewController: UIViewController {
         let notInterestedLabel = UILabel()
         notInterestedLabel.text = "Not Interested"
         notInterestedLabel.textAlignment = .center
+        notInterestedLabel.font = UIFont.boldSystemFont(ofSize: 17)
 
         let interestedLabel = UILabel()
         interestedLabel.text = "Interested!"
         interestedLabel.textAlignment = .center
+        interestedLabel.font = UIFont.boldSystemFont(ofSize: 17)
 
         let pawnLabelStackView = UIStackView(arrangedSubviews: [notInterestedLabel, interestedLabel])
         pawnLabelStackView.axis = .horizontal
@@ -136,7 +142,7 @@ class GameViewController: UIViewController {
 
         answerStackView = createAnswerStackView()
 
-        mainStackView = UIStackView(arrangedSubviews: [questionNumberLabel, questionLabel, pawnLabelStackView, pawnHoldingView, answerStackView])
+        mainStackView = UIStackView(arrangedSubviews: [pawnLabelStackView, pawnHoldingView, questionLabel, answerStackView, questionNumberLabel])
         mainStackView.axis = .vertical
         mainStackView.alignment = .fill
         mainStackView.distribution = .fill
@@ -173,7 +179,7 @@ class GameViewController: UIViewController {
         nextQuestionButton.addTarget(self, action: #selector(presentNextQuestion), for: .touchUpInside)
         nextQuestionButton.isHidden = true
 
-        let stackView = UIStackView(arrangedSubviews: [choice1Button, choice2Button, choice3Button, chooseAgainButton, nextQuestionButton])
+        let stackView = UIStackView(arrangedSubviews: [choice1Button, choice2Button, choice3Button, nextQuestionButton, chooseAgainButton])
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
@@ -201,14 +207,14 @@ class GameViewController: UIViewController {
         let margins = view.layoutMarginsGuide
 
         mainStackView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-        mainStackView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 20).isActive = true
+        mainStackView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 10).isActive = true
         mainStackView.rightAnchor.constraint(equalTo: margins.rightAnchor).isActive = true
-        mainStackView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -20).isActive = true
+        mainStackView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -10).isActive = true
 
-        pawnHoldingView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
+        pawnHoldingView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4).isActive = true
         questionLabel.heightAnchor.constraint(equalTo: answerStackView.heightAnchor).isActive = true
 
-        questionNumberLabel.heightAnchor.constraint(equalToConstant: 20.5).isActive = true
+        questionNumberLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
     }
 
     func setupMiddleLine() {
@@ -255,7 +261,7 @@ class GameViewController: UIViewController {
     }
 
     func makePerson(thatIsInterested isInterested: Bool) -> CAShapeLayer {
-        let person = PersonLayer.create(filledWith: isInterested ? brighterGreen : dullerGreen)
+        let person = PersonLayer.create(filledWith: isInterested ? Colors.pickRandomBrighterColor() : Colors.pickRandomDullerColor())
 
         let xRatio = pawnHoldingView.frame.width / (personSize.width * pawnsPerWidth * 2)
         let yRatio = pawnHoldingView.frame.height / (personSize.height * pawnsPerHeight)
@@ -337,6 +343,8 @@ class GameViewController: UIViewController {
     func showAnswerForChoice2() {
         presentAnswer(forChoice: 1)
 
+        choice2Button.isEnabled = false
+
         self.choice1Button.alpha = 0
         self.choice3Button.alpha = 0
 
@@ -357,6 +365,8 @@ class GameViewController: UIViewController {
 
     func showAnswerForChoice3() {
         presentAnswer(forChoice: 2)
+
+        choice3Button.isEnabled = false
 
         self.choice2Button.alpha = 0
         self.choice1Button.alpha = 0
@@ -461,7 +471,7 @@ class GameViewController: UIViewController {
         colorsAnimation.fromValue = personToMove.fillColor
         colorsAnimation.duration = 1.1
 
-        personToMove.fillColor = brighterGreen.cgColor
+        personToMove.fillColor = Colors.makeBrighterColor(from: Colors.getCurrentHSB(from: personToMove.fillColor!))
         personToMove.add(colorsAnimation, forKey: "fillColor")
 
         self.interestedPersonViews.append(personToMove)
@@ -494,7 +504,7 @@ class GameViewController: UIViewController {
         colorsAnimation.fromValue = personToMove.fillColor
         colorsAnimation.duration = 1.5
 
-        personToMove.fillColor = dullerGreen.cgColor
+        personToMove.fillColor = Colors.makeDullerColor(from: Colors.getCurrentHSB(from: personToMove.fillColor!))
         personToMove.add(colorsAnimation, forKey: "fillColor")
 
         self.notInterestedPersonViews.append(personToMove)
@@ -508,16 +518,17 @@ class GameViewController: UIViewController {
 
         for state in previousState {
             let person = state.layer
-            var color = brighterGreen.cgColor
+            var color = person.fillColor
 
             if state.wasNotInterested,
                 let index = interestedPersonViews.index(of: person) {
                 interestedPersonViews.remove(at: index)
                 notInterestedPersonViews.append(person)
-                color = dullerGreen.cgColor
+                color = Colors.makeDullerColor(from: Colors.getCurrentHSB(from: color!))
             } else if let index = notInterestedPersonViews.index(of: person) {
                 notInterestedPersonViews.remove(at: index)
                 interestedPersonViews.append(person)
+                color = Colors.makeBrighterColor(from: Colors.getCurrentHSB(from: color!))
             }
 
             UIView.animate(withDuration: 0.3) {
@@ -530,36 +541,40 @@ class GameViewController: UIViewController {
     }
 
     func presentNextQuestion() {
-
-        switch gameState() {
-        case .playAgain:
-            resetGame()
-        case .inProgress:
+        if currentQuestionIndex < questions.count - 1 {
             currentQuestionIndex += 1
             setTextForQuestion()
             showAnswers()
-        case .won:
-            changeQuestionLabel(to: "Congratulations! You have personally changed the future of tech and equality")
-            showPlayAgain()
-        case .lost:
-            changeQuestionLabel(to: "Error: Something went wrong. Please try again. (You Lost)")
-            showPlayAgain()
-        case .completed:
-            let percentChange = self.percentChange
+        } else {
+            switch gameState() {
+            case .playAgain:
+                resetGame()
+            case .won:
+                changeQuestionLabel(to: "Congratulations! You have personally changed the future of tech and equality")
+                showPlayAgain()
+            case .lost:
+                changeQuestionLabel(to: "Error: Something went wrong. Please try again. (You Lost)")
+                showPlayAgain()
+            case .completed:
+                let percentChange = self.percentChange
 
-            let numberFormatter = NumberFormatter()
-            numberFormatter.locale = Locale.current
-            numberFormatter.numberStyle = .percent
-            let percentChangeString = numberFormatter.string(from: NSNumber(floatLiteral: percentChange)) ?? "0%"
+                let numberFormatter = NumberFormatter()
+                numberFormatter.locale = Locale.current
+                numberFormatter.numberStyle = .percent
+                let percentChangeString = numberFormatter.string(from: NSNumber(floatLiteral: percentChange)) ?? "0%"
 
-            if percentChange < 0 {
-                changeQuestionLabel(to: "You might want to try again. You  decreased the number of women in STEM by \(percentChangeString)")
-            } else if percentChange == 0 {
-                changeQuestionLabel(to: "At the end of the day, no change was made. Try again?")
-            } else {
-                changeQuestionLabel(to: "You've completed the quest set before you and have increased the number of women in STEM by \(percentChangeString)")
+                if percentChange < 0 {
+                    changeQuestionLabel(to: "You might want to try again. You  decreased the number of women in STEM by \(percentChangeString)")
+                } else if percentChange == 0 {
+                    changeQuestionLabel(to: "At the end of the day, no change was made. Try again?")
+                } else {
+                    changeQuestionLabel(to: "You've completed the quest set before you and have increased the number of women in STEM by \(percentChangeString)")
+                }
+                showPlayAgain()
+            case .unknown:
+                changeQuestionLabel(to: "Oh no. Something went terribly wrong. Please try again.")
+                showPlayAgain()
             }
-            showPlayAgain()
         }
     }
 
@@ -592,7 +607,7 @@ class GameViewController: UIViewController {
         } else if currentQuestionIndex == questions.count - 1 {
             return .completed
         } else {
-            return .inProgress
+            return .unknown
         }
     }
 
